@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+// quando gerar o código automaticamente, será usado esse pacote
+//baixr o proto c - apt install -y protobuf-compiler
+//criar pasta pb
+// protoc --proto_path=proto proto/*.proto --go_out=plugins=grpc:pb 
+option go_package = "pb";
+
+message HelloRequest {
+    string name =1;
+}
+message HelloResponse {
+    string msg  = 1 ;
+        
+}
+
+service HelloService {
+    rpc Hello(HelloRequest) returns (HelloResponse){};
+}
